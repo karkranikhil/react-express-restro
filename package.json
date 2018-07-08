@@ -1,23 +1,22 @@
 {
     "name": "example-create-react-app-express",
     "version": "1.0.0",
-    "license": "MIT",
     "scripts": {
       "client": "cd client && yarn start",
       "server": "nodemon server.js",
-      "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-      "dev:server": "cd client && yarn build && cd .. && yarn start",
-      "start": "yarn dev",
-      "heroku-postbuild": "cd client && yarn install && yarn build"
+      "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
     },
     "author": {
       "name": "Nikhil karkra",
-      "email": "karkra.nikhil@gmail.com"
+      "email": "karkra.nikhil@gmail.com",
+      "url": "https://esausilva.com"
     },
     "engines": {
       "node": "8.7.0",
       "npm": "5.4.2"
     },
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && yarn install && yarn build",
     "dependencies": {
       "express": "^4.16.2"
     },
