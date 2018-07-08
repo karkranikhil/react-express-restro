@@ -3,7 +3,6 @@ import { Card, CardImg, CardImgOverlay,
     CardTitle, Breadcrumb, BreadcrumbItem, CardBody  } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
-import { baseUrl } from '../shared/baseUrl';
 const DishImg = {
     height: '20rem',
     minHeight: '20rem',
@@ -17,7 +16,7 @@ function RenderMenuItem ({dish, onClick}) {
             <CardBody>
                 <CardTitle>{dish.name}</CardTitle>
             </CardBody>
-            <CardImg  style={DishImg} width="100%" src={baseUrl + dish.image} alt={dish.name} />
+            <CardImg  style={DishImg} width="100%" src={dish.image} alt={dish.name} />
                 <CardImgOverlay>
                     <CardTitle>{dish.name}</CardTitle>
                 </CardImgOverlay>

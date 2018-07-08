@@ -3,29 +3,27 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 // API calls
-const images = path.join(__dirname, 'client/images')
-const pizaImages = path.join(__dirname, 'client/images/pizza.jpg')
-const pakodaImages = path.join(__dirname, 'client/images/pakoda.jpg')
-const vadaImages = path.join(__dirname, 'client/images/vada.jpg')
-const cheesecakeImages = path.join(__dirname, 'client/images/cheesecake.jpg')
-const buffetNewImages = path.join(__dirname, 'client/images/buffetNew.jpg')
-const nikhilImages = path.join(__dirname, 'client/images/nikhil.jpeg')
-const nikhil1Images = path.join(__dirname, 'client/images/nikhil1.jpg')
-const albertoImages = path.join(__dirname, 'client/images/alberto.png')
-const chefImages = path.join(__dirname, 'client/images/chef.jpg')
+// const images = path.join(__dirname, 'client/images')
+// const pizaImages = path.join(__dirname, 'images/pizza.jpg')
+// const pakodaImages = path.join(__dirname, 'client/images/pakoda.jpg')
+// const vadaImages = path.join(__dirname, 'client/images/vada.jpg')
+// const cheesecakeImages = path.join(__dirname, 'client/images/cheesecake.jpg')
+// const buffetNewImages = path.join(__dirname, 'client/images/buffetNew.jpg')
+// const nikhilImages = path.join(__dirname, 'client/images/nikhil.jpeg')
+// const nikhil1Images = path.join(__dirname, 'client/images/nikhil1.jpg')
+// const albertoImages = path.join(__dirname, 'client/images/alberto.png')
+// const chefImages = path.join(__dirname, 'client/images/chef.jpg')
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 app.get('/dishes', (req, res) => {
-  console.log(path.join(__dirname, 'client/images'))
-  console.log(pizaImages)
   res.send([
     {
       "id": 0,
       "name": "Uthappizza",
-      "image": 'pizaImages',
+      "image": 'assets/images/vada.jpg',
       "category": "mains",
       "label": "Hot",
       "price": "4.99",
@@ -35,7 +33,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 1,
       "name": "Zucchipakoda",
-      "image": pakodaImages,
+      "image": 'assets/images/pakoda.jpg',
       "category": "appetizer",
       "label": "",
       "price": "1.99",
@@ -45,7 +43,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 2,
       "name": "Vadonut",
-      "image": vadaImages,
+      "image": 'assets/images/pizza.jpg',
       "category": "appetizer",
       "label": "New",
       "price": "1.99",
@@ -55,7 +53,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 3,
       "name": "ElaiCheese Cake",
-      "image": cheesecakeImages,
+      "image": 'assets/images/cheesecake.jpg',
       "category": "dessert",
       "label": "",
       "price": "2.99",
@@ -115,7 +113,7 @@ res.send([
     {
         "id": 0,
         "name": "Nikhil karkra",
-        "image": nikhilImages,
+        "image": 'assets/images/nikhil.jpeg',
         "designation": "Chief Epicurious Officer",
         "abbr": "CEO",
         "featured": false,
@@ -124,7 +122,7 @@ res.send([
     {
         "id": 1,
         "name": "Nixalar",
-        "image": nikhil1Images,
+        "image": 'assets/images/nikhil1.jpg',
         "designation": "Chief Food Officer",
         "abbr": "CFO",
         "featured": false,
@@ -133,7 +131,7 @@ res.send([
     {
         "id": 2,
         "name": "Agumbe Tang",
-        "image": albertoImages,
+        "image": 'assets/images/alberto.png',
         "designation": "Chief Taste Officer",
         "abbr": "CTO",
         "featured": false,
@@ -142,7 +140,7 @@ res.send([
     {
         "id": 3,
         "name": "Alberto Somayya",
-        "image": chefImages,
+        "image": 'assets/images/chef.jpg',
         "designation": "Executive Chef",
         "abbr": "EC",
         "featured": true,
@@ -155,7 +153,7 @@ res.send([
     {
         "id": 0,
         "name": "Weekend Grand Buffet",
-        "image": buffetNewImages,
+        "image": 'assets/images/buffetNew.jpg',
         "label": "New",
         "price": "19.99",
         "featured": true,
@@ -414,6 +412,7 @@ res.send([
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
+
   // Handle React routing, return all requests to React app
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));

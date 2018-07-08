@@ -33,7 +33,7 @@ import { Card, CardImg, CardText, CardBody,
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
                 <Card>
-                    <CardImg style={CardImgFixHeight} src='assets/images/piza.jpg' alt={item.name} />
+                    <CardImg style={CardImgFixHeight} src={item.image} alt={item.name} />
                     <CardBody style={cardImgFix15}>
                     <CardTitle>{item.name}</CardTitle>
                     {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
